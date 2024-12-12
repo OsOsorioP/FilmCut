@@ -45,7 +45,7 @@ El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios
 
 5. **Inicia el servidor**:
    ```bash
-   npm start
+   npm start:dev
    ```
 
 6. **Verifica el servidor** en `http://localhost:4000`.
@@ -66,7 +66,9 @@ El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios
    Crea un archivo `.env.local` y agrega las siguientes variables de entorno:
 
    ```env
-   NEXT_PUBLIC_API_URL=http://localhost:5000/api
+   NEXT_PUBLIC_BACKEND_URL = http://localhost:4000/v1
+   BACKEND_MOVIES = http://localhost:4000/v1/movies
+   NEXTAUTH_SECRET=#$%gfdj$%#dfsd$hdshg#%jh5t$Esfsdy83
    ```
 
 4. **Inicia la aplicación**:
