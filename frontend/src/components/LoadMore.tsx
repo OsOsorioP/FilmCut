@@ -1,9 +1,12 @@
 "use client"
 
 import { useInView } from "react-intersection-observer";
+
 import { Loader2Icon } from "lucide-react";
 import { useEffect, useState } from "react";
+
 import { fetchMovieByGenre } from "@/lib/api";
+
 import MovieCard from "@/components/MovieCard";
 
 let page = 2;

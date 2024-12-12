@@ -36,10 +36,12 @@ export default async function Banner() {
                 <h1 className=' text-3xl md:text-text-3xl lg:text-[35px] lg:leading-[39px] lg:font-[700] font-bold text-gray-300'>
                     {banner.original_title}
                 </h1>
-
+                <div>
                 <p className='mt-4 md:mt-8 text-[20px] leading-[24px] font-[700] md:text-lg max-w-96 md:max-w-4xl'>
                     {banner.overview}
                 </p>
+                
+                </div>
 
             </div>
 

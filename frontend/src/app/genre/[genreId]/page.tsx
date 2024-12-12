@@ -1,4 +1,4 @@
-import { fetchMovieByGenre } from "@/actions/actions";
+import { fetchMovieByGenre } from "@/lib/api";
 import LoadMore from "@/components/LoadMore";
 import MovieCard from "@/components/MovieCard";
 import { genres } from "@/constants/genres";
@@ -21,6 +21,7 @@ export default async function GenrePage({ params }: Props) {
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
                 {movies && movies.map((movie: Movie) => (
+                    
                     <MovieCard key={movie.id} movie={movie} />
                 ))}
             </div>

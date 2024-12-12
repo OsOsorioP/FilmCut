@@ -19,13 +19,9 @@ export default function SearchMovies() {
     const [searchKey, setSearchKey] = useState<string>("");
 
     const searchMovies = async (key: string) => {
-        try {
-            const searchResults = await fetchSearchMovie(key);
-            setMovies(searchResults);
-            setMovie(searchResults[0] || { title: "No movies found" });
-        } catch (error) {
-            console.error("Error fetching movies:", error);
-        }
+        const searchResults = await fetchSearchMovie(key);
+        setMovies(searchResults);
+        setMovie(searchResults[0] || { title: "No movies found" });
     };
 
     useEffect(() => {
@@ -59,20 +55,20 @@ export default function SearchMovies() {
             <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                     <AccordionTrigger className=" w-[228px] h-[40px] bg-[#1C1C1C] mt-5 mb-1 text-[#FFFFFF] font-[700] text-[16px] leading-[22px]">
-                       <p className="px-10">___________________</p>
+                        <p className="px-10">___________________</p>
                     </AccordionTrigger>
                     <div className="overflow-y-scroll scroll max-h-[355px]">
-                    {genres.map((genres: Genres) => (
+                        {genres.map((genres: Genres) => (
 
-                        <AccordionContent key={genres.id} className=" bg-[#1C1C1C] align-baseline items-baseline ">
-                            <Link
-                                href={`/genre/${genres.id}`}
-                                className="w-full h-full align-baseline items-baseline hover:bg-[#454545] bg-[#1C1C1C]"
-                            >
-                                <p className="w-full h-full hover:bg-[#454545] p-2 font-[400] text-[14px] leading-[16.94px] text-[#FFFFFF]">{genres.name}</p>
-                            </Link>
-                        </AccordionContent>
-                    ))}
+                            <AccordionContent key={genres.id} className=" bg-[#1C1C1C] align-baseline items-baseline ">
+                                <Link
+                                    href={`/genre/${genres.id}`}
+                                    className="w-full h-full align-baseline items-baseline hover:bg-[#454545] bg-[#1C1C1C]"
+                                >
+                                    <p className="w-full h-full hover:bg-[#454545] p-2 font-[400] text-[14px] leading-[16.94px] text-[#FFFFFF]">{genres.name}</p>
+                                </Link>
+                            </AccordionContent>
+                        ))}
                     </div>
                 </AccordionItem>
             </Accordion>
