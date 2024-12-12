@@ -1,18 +1,26 @@
 # Movie App 
 ## Descripción
 
-Este es el backend y frontend para una aplicación de películas que permite el registro y autenticación de usuarios, y ofrece funcionalidad para filtrar películas a través de la API de The Movie Database (TMDB).
+El repositorio contiene tanto el **backend** como el **frontend** para una aplicación de películas que permite el registro e inicio de sesión de usuarios, y ofrece funcionalidad para filtrar películas a través de la API de The Movie Database (TMDB).
+
+### Backend
+El backend se encarga de gestionar la autenticación de usuarios y de exponer un servicio para filtrar películas.
+
+### Frontend
+El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios registrarse, iniciar sesión, y filtrar películas de manera interactiva.
 
 ## Instalación
 
+### Backend
+
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/tu_usuario/PTInlaze.git
+   git clone https://github.com/tu_usuario/movie-app.git
    ```
 
-2. **Navega al directorio del proyecto**:
+2. **Navega al directorio del backend**:
    ```bash
-   cd movie-app-backend
+   cd movie-app/backend
    ```
 
 3. **Instala las dependencias**:
@@ -21,7 +29,7 @@ Este es el backend y frontend para una aplicación de películas que permite el 
    ```
 
 4. **Configura el entorno**:
-   Crea un archivo `.env` en la raíz del proyecto y agrega las siguientes variables de entorno:
+   Crea un archivo `.env` y agrega las siguientes variables de entorno:
 
    ```env
    MONGO_URI=tu_conexion_a_mongo
@@ -29,23 +37,44 @@ Este es el backend y frontend para una aplicación de películas que permite el 
    TMDB_API_KEY=tu_api_key_de_tmdb
    ```
 
-   Asegúrate de reemplazar `tu_conexion_a_mongo`, `tu_secreto_de_jwt` y `tu_api_key_de_tmdb` con los valores reales.
-
 5. **Inicia el servidor**:
    ```bash
    npm start
    ```
 
-   El servidor comenzará a ejecutarse en `http://localhost:5000` (o el puerto configurado en `.env`).
+6. **Verifica el servidor** en `http://localhost:5000`.
 
-6. **Verifica que el servidor esté corriendo correctamente** visitando el endpoint base en tu navegador:
+### Frontend
+
+1. **Navega al directorio del frontend**:
    ```bash
-   http://localhost:5000
+   cd movie-app/frontend
    ```
+
+2. **Instala las dependencias**:
+   ```bash
+   npm install
+   ```
+
+3. **Configura el entorno**:
+   Crea un archivo `.env.local` y agrega las siguientes variables de entorno:
+
+   ```env
+   NEXT_PUBLIC_API_URL=http://localhost:5000/api
+   ```
+
+4. **Inicia la aplicación**:
+   ```bash
+   npm run dev
+   ```
+
+5. **Verifica la aplicación** en `http://localhost:3000`.
 
 ## Endpoints
 
-### 1. **Sign Up (Registro de usuario)**
+### Backend
+
+#### 1. **Sign Up (Registro de usuario)**
 
 **Método**: `POST`  
 **URL**: `/api/auth/signup`
@@ -58,11 +87,7 @@ Este es el backend y frontend para una aplicación de películas que permite el 
   }
   ```
 
-- **Respuesta**:
-  - `201 Created`: Usuario registrado correctamente.
-  - `400 Bad Request`: Error en la validación de datos.
-
-### 2. **Sign In (Inicio de sesión)**
+#### 2. **Sign In (Inicio de sesión)**
 
 **Método**: `POST`  
 **URL**: `/api/auth/login`
@@ -75,11 +100,7 @@ Este es el backend y frontend para una aplicación de películas que permite el 
   }
   ```
 
-- **Respuesta**:
-  - `200 OK`: Token JWT generado correctamente.
-  - `401 Unauthorized`: Credenciales incorrectas.
-
-### 3. **Filtrar películas**
+#### 3. **Filtrar películas**
 
 **Método**: `GET`  
 **URL**: `/api/movies`
@@ -89,16 +110,17 @@ Este es el backend y frontend para una aplicación de películas que permite el 
   - `popularity`: Filtro por popularidad (opcional).
   - `title`: Título de la película (opcional).
 
-- **Ejemplo de URL**:
-  ```bash
-  /api/movies?genre=comedy&popularity=high
-  ```
+### Frontend
 
-- **Respuesta**:
-  - `200 OK`: Lista de películas filtradas en formato JSON.
-  - `400 Bad Request`: Error en los parámetros de la consulta.
+El frontend proporciona una interfaz donde los usuarios pueden interactuar con los siguientes elementos:
+
+- **Formulario de registro** y **login**.
+- **Visualización de películas filtradas** basadas en género, popularidad o título.
+- **Carga de más películas** al hacer scroll utilizando la API de TMDB.
 
 ## Tecnologías
+
+### Backend
 
 - **Node.js**: Entorno de ejecución de JavaScript.
 - **Express.js**: Framework de servidor web para Node.js.
@@ -107,18 +129,32 @@ Este es el backend y frontend para una aplicación de películas que permite el 
 - **bcryptjs**: Biblioteca para encriptar contraseñas.
 - **Axios**: Cliente HTTP para consumir APIs externas como TMDB.
 
+### Frontend
+
+- **Next.js**: Framework para React.
+- **TypeScript**: Lenguaje de programación que añade tipos estáticos a JavaScript.
+- **TailwindCSS**: Framework de CSS utilitario para construir diseños personalizados.
+- **Shadcn/ui**: Biblioteca de componentes de interfaz de usuario.
+- **Axios**: Cliente HTTP para consumir la API del backend.
+
 ## Justificación Técnica
 
-- **Escalabilidad**: La arquitectura del backend es escalable mediante la utilización de una base de datos NoSQL como MongoDB, que permite gestionar grandes volúmenes de datos de manera eficiente.
-- **Seguridad**: El uso de JWT para la autenticación de usuarios y bcrypt para el hash de contraseñas asegura que la información sensible esté protegida.
-- **Eficiencia**: Se utiliza una API de filtrado eficiente para manejar las consultas de películas, optimizando el rendimiento de la aplicación.
+### Backend
 
+- **Escalabilidad**: El uso de MongoDB y JWT permite una escalabilidad eficiente para el manejo de usuarios y películas.
+- **Seguridad**: El hash de contraseñas con bcrypt y la autenticación mediante JWT aseguran una gestión segura de las credenciales de los usuarios.
+
+### Frontend
+
+- **React y Next.js**: Se eligió Next.js por su capacidad para crear aplicaciones React con soporte para renderizado del lado del servidor (SSR), lo que mejora el rendimiento y SEO.
+- **TailwindCSS**: Para una implementación rápida de interfaces responsivas y personalizadas.
+  
 ## Desafíos Superados
 
-- **Manejo de la autenticación**: Implementar la autenticación con JWT y bcrypt fue un desafío inicial, pero se logró una solución robusta.
-- **Integración con TMDB**: La integración con la API de TMDB para filtrar películas de manera eficiente fue otro reto, pero se logró gracias a la biblioteca Axios para manejar las solicitudes HTTP.
+- **Manejo de la autenticación**: Implementar JWT y la encriptación de contraseñas fue un desafío inicial, pero se logró una solución segura y eficiente.
+- **Integración de la API de TMDB**: Integrar TMDB para obtener datos de películas y filtrar correctamente según los criterios fue una tarea desafiante, pero resultó exitosa gracias a Axios.
 
 ## Mejoras Futuras
 
-- **Agregar paginación** a los resultados de las películas para mejorar el rendimiento cuando se manejen grandes cantidades de datos.
-- **Refinamiento de la seguridad**: Mejorar la validación de tokens y la implementación de roles de usuario para mayor control de acceso.
+- **Paginación**: Implementar paginación para las respuestas de películas y mejorar la eficiencia de las consultas.
+- **Mejoras en seguridad**: Añadir más validaciones de seguridad, como la verificación de los roles de los usuarios.
