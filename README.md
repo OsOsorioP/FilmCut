@@ -1,8 +1,7 @@
-# Movie App Backend
-
+# Movie App 
 ## Descripción
 
-Este es el backend para una aplicación de películas que permite el registro y autenticación de usuarios, y ofrece funcionalidad para filtrar películas a través de la API de The Movie Database (TMDB).
+Este es el backend y frontend para una aplicación de películas que permite el registro y autenticación de usuarios, y ofrece funcionalidad para filtrar películas a través de la API de The Movie Database (TMDB).
 
 ## Instalación
 
