@@ -1,4 +1,9 @@
 # Movie App 
+
+  <p align="center">
+     <img src="https://github.com/OsOsorioP/PTInlaze/blob/main/ImageWeb.png" alt="home" title="Pantalla de inicio" width="660">
+   </p>
+
 ## Descripción
 
 El repositorio contiene tanto el **backend** como el **frontend** para una aplicación de películas que permite el registro e inicio de sesión de usuarios, y ofrece funcionalidad para filtrar películas a través de la API de The Movie Database (TMDB).
