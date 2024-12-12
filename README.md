@@ -32,9 +32,15 @@ El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios
    Crea un archivo `.env` y agrega las siguientes variables de entorno:
 
    ```env
-   MONGO_URI=tu_conexion_a_mongo
-   JWT_SECRET=tu_secreto_de_jwt
-   TMDB_API_KEY=tu_api_key_de_tmdb
+   DB_HOST=localhost
+   DB_PORT=5432
+   DB_USER= (usuario de postgres)
+   DB_PASS= (contraseña de postgres)
+   DB_NAME= (nombre de la base de datos)
+
+   BASE_URL = https://api.themoviedb.org/3
+   TMDB_API_KEY=ff37d60dfcd2f7f623b26bfe9b5acaa2
+   TOKEN = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZjM3ZDYwZGZjZDJmN2Y2MjNiMjZiZmU5YjVhY2FhMiIsIm5iZiI6MTczMzc4MDI3My45NDMsInN1YiI6IjY3NTc2MzMxOWUxMmZhMjVlOGZiZjRlNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.gRLqZHF4WpAxVfAOcdqDKqvPJ6X0LTAdv4f01tth71U
    ```
 
 5. **Inicia el servidor**:
