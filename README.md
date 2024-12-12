@@ -78,78 +78,34 @@ El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios
 
 5. **Verifica la aplicación** en `http://localhost:3000`.
 
-## Endpoints
-
-### Backend
-
-#### 1. **Sign Up (Registro de usuario)**
-
-**Método**: `POST`  
-**URL**: `/v1/auth/signup`
-
-- **Body**:
-  ```json
-  {
-    "email": "usuario@example.com",
-    "password": "tu_contraseña"
-  }
-  ```
-
-#### 2. **Sign In (Inicio de sesión)**
-
-**Método**: `POST`  
-**URL**: `/v1/auth/login`
-
-- **Body**:
-  ```json
-  {
-    "email": "usuario@example.com",
-    "password": "tu_contraseña"
-  }
-  ```
-
-#### 3. **Filtrar películas**
-
-**Método**: `GET`  
-**URL**: `/v1/movies`
-
-### Frontend
-
-El frontend proporciona una interfaz donde los usuarios pueden interactuar con los siguientes elementos:
-
-- **Formulario de registro** y **login**.
-- **Visualización de películas filtradas** basadas en género, popularidad o título.
-- **Carga de más películas** al hacer scroll utilizando la API de TMDB.
-
 ## Tecnologías
 
 ### Backend
 
-- **Node.js**: Entorno de ejecución de JavaScript.
-- **Express.js**: Framework de servidor web para Node.js.
-- **MongoDB**: Base de datos NoSQL.
+- **Nest.js**: Framework.
+- **PostgreSQL**: Base de datos NoSQL.
 - **JWT**: JSON Web Tokens para la autenticación de usuarios.
 - **bcryptjs**: Biblioteca para encriptar contraseñas.
 - **Axios**: Cliente HTTP para consumir APIs externas como TMDB.
 
 ### Frontend
 
-- **Next.js**: Framework para React.
-- **TypeScript**: Lenguaje de programación que añade tipos estáticos a JavaScript.
-- **TailwindCSS**: Framework de CSS utilitario para construir diseños personalizados.
+- **Next.js**: Framework.
+- **TypeScript**: Lenguaje de programación.
+- **TailwindCSS**: Framework de CSS utilitario.
 - **Shadcn/ui**: Biblioteca de componentes de interfaz de usuario.
-- **Axios**: Cliente HTTP para consumir la API del backend.
+- **Axios**: Cliente HTTP.
 
 ## Justificación Técnica
 
 ### Backend
 
-- **Escalabilidad**: El uso de MongoDB y JWT permite una escalabilidad eficiente para el manejo de usuarios y películas.
+- **Escalabilidad**: El uso de PostgreSQL y JWT permite una escalabilidad eficiente para el manejo de usuarios y películas.
 - **Seguridad**: El hash de contraseñas con bcrypt y la autenticación mediante JWT aseguran una gestión segura de las credenciales de los usuarios.
 
 ### Frontend
 
-- **React y Next.js**: Se eligió Next.js por su capacidad para crear aplicaciones React con soporte para renderizado del lado del servidor (SSR), lo que mejora el rendimiento y SEO.
+- **Next.js**: Su capacidad para crear aplicaciones React con soporte para renderizado del lado del servidor (SSR), lo que mejora el rendimiento y SEO.
 - **TailwindCSS**: Para una implementación rápida de interfaces responsivas y personalizadas.
   
 ## Desafíos Superados
@@ -160,4 +116,4 @@ El frontend proporciona una interfaz donde los usuarios pueden interactuar con l
 ## Mejoras Futuras
 
 - **Paginación**: Implementar paginación para las respuestas de películas y mejorar la eficiencia de las consultas.
-- **Mejoras en seguridad**: Añadir más validaciones de seguridad, como la verificación de los roles de los usuarios.
+- **Mejoras en seguridad**.
