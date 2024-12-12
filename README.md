@@ -15,7 +15,7 @@ El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios
 
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/tu_usuario/movie-app.git
+   git clone https://github.com/tu_usuario/PTInlaze.git
    ```
 
 2. **Navega al directorio del backend**:
