@@ -20,7 +20,7 @@ El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios
 
 2. **Navega al directorio del backend**:
    ```bash
-   cd movie-app/backend
+   cd PTInlaze/backend
    ```
 
 3. **Instala las dependencias**:
@@ -42,13 +42,13 @@ El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios
    npm start
    ```
 
-6. **Verifica el servidor** en `http://localhost:5000`.
+6. **Verifica el servidor** en `http://localhost:4000`.
 
 ### Frontend
 
 1. **Navega al directorio del frontend**:
    ```bash
-   cd movie-app/frontend
+   cd PTInlaze/frontend
    ```
 
 2. **Instala las dependencias**:
@@ -77,7 +77,7 @@ El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios
 #### 1. **Sign Up (Registro de usuario)**
 
 **Método**: `POST`  
-**URL**: `/api/auth/signup`
+**URL**: `/v1/auth/signup`
 
 - **Body**:
   ```json
@@ -90,7 +90,7 @@ El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios
 #### 2. **Sign In (Inicio de sesión)**
 
 **Método**: `POST`  
-**URL**: `/api/auth/login`
+**URL**: `/v1/auth/login`
 
 - **Body**:
   ```json
@@ -103,12 +103,7 @@ El frontend es responsable de la interfaz de usuario, permitiendo a los usuarios
 #### 3. **Filtrar películas**
 
 **Método**: `GET`  
-**URL**: `/api/movies`
-
-- **Parámetros de consulta**:
-  - `genre`: Género de la película (opcional).
-  - `popularity`: Filtro por popularidad (opcional).
-  - `title`: Título de la película (opcional).
+**URL**: `/v1/movies`
 
 ### Frontend
 
