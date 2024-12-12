@@ -1,1 +1,1 @@
-# PTInlaze
+# Prueba Técnica Full-Stack
