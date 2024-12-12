@@ -51,7 +51,7 @@ export default function Row({ data, title }: Props) {
                             </Link>
 
                             <div className="text-[#F6F6F6] p-[8px]">
-                                <h3 className="leading-[20px] text-[14px] font-[700] ">
+                                <h3 className="leading-[20px] h-[20px] text-[14px] font-[700] overflow-x-auto no-scrollbar ">
                                     {movie.title}
                                 </h3>
                                 <p className="font-[400] text-[9px] leading-[10px] py-[8px]">

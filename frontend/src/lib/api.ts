@@ -34,7 +34,7 @@ export const fetchNowPlaying = async () => {
   
   export const fetchMovieByGenre = async (id: string, page: number) => {
     const response = await axios.get(`${api}/genre/${id}`, {
-      params: { page },
+      params: { page:page },
     });
     return response.data;
   };

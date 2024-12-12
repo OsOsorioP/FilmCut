@@ -7,6 +7,7 @@ import { Role } from '../common/enums/rol.enum';
 import { Auth } from '../common/decorators/auth.decorator';
 import { ActiveUser } from '../common/decorators/active.user.decorator';
 import { UserActiveInterface } from '../common/interfaces/user-active.interface';
+import { ApiTags } from '@nestjs/swagger';
 
 interface RequestWithUser extends Request {
   user: {
@@ -15,6 +16,7 @@ interface RequestWithUser extends Request {
   };
 }
 
+@ApiTags('auth')
 @Controller('auth')
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
@@ -27,7 +29,7 @@ export class AuthController {
     return this.authService.signUp(singupDto);
   }
 
-  @Post('singin')
+  @Post('signin')
   signIn(
     @Body()
     signinDto: SigninDto,

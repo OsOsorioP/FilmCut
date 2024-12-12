@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { MoviesModule } from './movies/movies.module';
 
 import * as dotenv from 'dotenv';
+import { User } from './users/entities/user.entity';
 
 dotenv.config();
 
@@ -20,7 +21,7 @@ dotenv.config();
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
-      entities: [__dirname + '/../**/*.entity.{ts}'],
+      entities: [User],
       synchronize: true,
     }),
   ],

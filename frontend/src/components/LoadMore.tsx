@@ -23,7 +23,7 @@ export default function LoadMore({ id }: { id: string }) {
                 page++
             })
         }
-    }, [inView, id, movies])
+    }, [inView, id])
 
     return (
         <>

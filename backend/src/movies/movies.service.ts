@@ -74,7 +74,7 @@ export class MoviesService {
   }
 
   async fetchMovieByGenre(id: string, page: number) {
-    const params = { api_key: this.apiKey, with_genres: id, page };
+    const params = { api_key: this.apiKey, with_genres: id, page:page };
     const data = await this.fetchFromAPI(
       `${this.baseUrl}/discover/movie`,
       params,

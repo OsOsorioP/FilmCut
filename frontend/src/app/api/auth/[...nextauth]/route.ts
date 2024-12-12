@@ -9,7 +9,7 @@ const handler = NextAuth({
         email: { label: "email", type: "email", placeholder: "test@test.com" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
+      async authorize(credentials, req) {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/signin`,
           {
@@ -38,10 +38,6 @@ const handler = NextAuth({
       return session;
     },
   },
-
-  pages:{
-    signIn: "/login"
-  }
 });
 
 export { handler as GET, handler as POST };

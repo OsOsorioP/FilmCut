@@ -1,6 +1,4 @@
 import Banner from "@/components/Banner";
-import ButtonAuth from "@/components/ButtonAuth";
-
 import Rows from "@/components/Rows";
 import SearchMovies from "@/components/Search";
 
