@@ -31,18 +31,15 @@ export default function LoginPage() {
     });
 
     return (
-        <div className="h-[calc(100vh-7rem)] flex justify-center items-center">
-            <form onSubmit={onSubmit} className="w-1/4">
+        <div className="flex justify-center items-center">
+            <form onSubmit={onSubmit} className="flex flex-col gap-[20px]">
 
                 {error && (
                     <p className="bg-red-500 text-lg text-white p-3 rounded mb-2">{error}</p>
                 )}
 
-                <h1 className="text-slate-200 font-bold text-4xl mb-4">Login</h1>
+                <p className="font-[400] text-[14px] leading-[20px] text-center text-[#FFFFFF]">We love having you back</p>
 
-                <label htmlFor="email" className="text-slate-500 mb-2 block text-sm">
-                    Email:
-                </label>
                 <input
                     type="email"
                     {...register("email", {
@@ -51,8 +48,8 @@ export default function LoginPage() {
                             message: "Email is required",
                         },
                     })}
-                    className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
-                    placeholder="user@email.com"
+                    className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+                    placeholder="Email"
                 />
 
                 {errors.email && (
@@ -62,10 +59,6 @@ export default function LoginPage() {
                             : "An error occurred"}
                     </span>
                 )}
-
-                <label htmlFor="password" className="text-slate-500 mb-2 block text-sm">
-                    Password:
-                </label>
                 <input
                     type="password"
                     {...register("password", {
@@ -74,8 +67,8 @@ export default function LoginPage() {
                             message: "Password is required",
                         },
                     })}
-                    className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
-                    placeholder="******"
+                    className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+                    placeholder="Password"
                 />
 
                 {errors.password && (
@@ -86,9 +79,12 @@ export default function LoginPage() {
                     </span>
                 )}
 
-                <button className="w-full bg-blue-500 text-white p-3 rounded-lg mt-2">
-                    Login
-                </button>
+                <div className="flex justify-center items-center">
+                    <button className="w-[424px] h-[46px] bg-[#F0B90B] gap-[8px]">
+                        Continue
+                    </button>
+                </div>
+                <p>For any questions, reach out to support@Quickbetmovies.com</p>
             </form>
         </div>
     );

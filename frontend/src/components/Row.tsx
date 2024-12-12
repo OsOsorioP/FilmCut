@@ -71,7 +71,9 @@ export default function Row({ data, title }: Props) {
                                     </div>
                                     <div className="felx flex-col gap-[20px] justify-center">
                                         <p className="font-[400] text-[9px] leading-[10px] pb-2">Favorites</p>
-                                        <Heart className="w-[25px] h-[25px]" />
+                                        <div className="flex justify-center">
+                                            <Heart className="w-[25px] h-[25px]" />
+                                        </div>
                                     </div>
                                 </div>
                             </div>

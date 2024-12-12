@@ -33,13 +33,10 @@ export default function RegisterPage() {
   });
 
   return (
-    <div className="h-[calc(100vh-7rem)] flex justify-center items-center">
-      <form onSubmit={onSubmit} className="w-1/4">
-        <h1 className="text-slate-200 font-bold text-4xl mb-4">Register</h1>
+    <div className="flex justify-center items-center">
+      <form onSubmit={onSubmit} className="flex flex-col gap-[20px]">
+        <p className="font-[400] text-[14px] leading-[20px] text-center text-[#FFFFFF]">Register and enjoy</p>
 
-        <label htmlFor="username" className="text-slate-500 mb-2 block text-sm">
-          Username:
-        </label>
         <input
           type="text"
           {...register("username", {
@@ -48,8 +45,8 @@ export default function RegisterPage() {
               message: "Username is required",
             },
           })}
-          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
-          placeholder="yourUser123"
+          className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+          placeholder="Username"
         />
 
         {errors.username && (
@@ -60,9 +57,6 @@ export default function RegisterPage() {
           </span>
         )}
 
-        <label htmlFor="email" className="text-slate-500 mb-2 block text-sm">
-          Email:
-        </label>
         <input
           type="email"
           {...register("email", {
@@ -71,8 +65,8 @@ export default function RegisterPage() {
               message: "Email is required",
             },
           })}
-          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
-          placeholder="user@email.com"
+          className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+          placeholder="Email"
         />
         {errors.email && (
           <span className="text-red-500 text-xs">
@@ -82,9 +76,6 @@ export default function RegisterPage() {
           </span>
         )}
 
-        <label htmlFor="password" className="text-slate-500 mb-2 block text-sm">
-          Password:
-        </label>
         <input
           type="password"
           {...register("password", {
@@ -93,23 +84,17 @@ export default function RegisterPage() {
               message: "Password is required",
             },
           })}
-          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
-          placeholder="********"
+          className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+          placeholder="Password"
         />
         {errors.password && (
           <span className="text-red-500 text-sm">
-             {typeof errors.password.message === "string"
+            {typeof errors.password.message === "string"
               ? errors.password.message
               : "An error occurred"}
           </span>
         )}
 
-        <label
-          htmlFor="confirmPassword"
-          className="text-slate-500 mb-2 block text-sm"
-        >
-          Confirm Password:
-        </label>
         <input
           type="password"
           {...register("confirmPassword", {
@@ -118,20 +103,23 @@ export default function RegisterPage() {
               message: "Confirm Password is required",
             },
           })}
-          className="p-3 rounded block mb-2 bg-slate-900 text-slate-300 w-full"
-          placeholder="********"
+          className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+          placeholder="Confirm Password"
         />
         {errors.confirmPassword && (
           <span className="text-red-500 text-sm">
-             {typeof errors.confirmPassword.message === "string"
+            {typeof errors.confirmPassword.message === "string"
               ? errors.confirmPassword.message
               : "An error occurred"}
           </span>
         )}
 
-        <button className="w-full bg-blue-500 text-white p-3 rounded-lg mt-2">
-          Register
-        </button>
+        <div>
+          <button className="w-[424px] h-[46px] bg-[#F0B90B] gap-[8px]">
+            Register
+          </button>
+        </div>
+        <p>For any questions, reach out to support@Quickbetmovies.com</p>
       </form>
     </div>
   );

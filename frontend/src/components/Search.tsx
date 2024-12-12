@@ -12,6 +12,8 @@ import { fetchSearchMovie } from "@/lib/api";
 import React, { useEffect, useState } from 'react';
 import Link from "next/link";
 import { genres } from "@/constants/genres";
+import { Input } from "./ui/input";
+import { Button } from "./ui/button";
 
 export default function SearchMovies() {
     const [movie, setMovie] = useState({ title: "Loading Movies" });
@@ -37,18 +39,24 @@ export default function SearchMovies() {
         <section className="min-w-[260px] p-[16px] bg-[#262626]">
             <h2 className="mt-5 mb-5 text-[#FFFFFF] font-[700] text-[16px] leading-[22px]">Search</h2>
 
-            <form className="container rounded mb-4 flex justify-between bg-[#1C1C1C]" onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Search"
-                    value={searchKey}
-                    onChange={(e) => setSearchKey(e.target.value)}
-                    className="p-2 w-[228px] h-[46px] bg-[#1C1C1C]"
-                />
-                <button type="submit" className="btn btn-primary mt-2">
-                    <Search />
-                </button>
-            </form>
+            <div className="w-full max-w-sm">
+                <form className="relative">
+                    <Input
+                        className="w-full bg-[#1C1C1C] border-0 text-white placeholder:text-gray-400 focus-visible:ring-0 focus-visible:ring-offset-0"
+                        placeholder="Keywords"
+                        type="search"
+                    />
+                    <Button
+                        size="icon"
+                        type="submit"
+                        variant="ghost"
+                        className="absolute right-0 top-0 h-full px-3 text-gray-400 hover:text-[#1C1C1C]"
+                    >
+                        <Search className="h-4 w-4" />
+                        <span className="sr-only">Search</span>
+                    </Button>
+                </form>
+            </div>
 
             <h2 className="mt-5 text-[#FFFFFF] font-[700] text-[16px] leading-[22px]">Genres</h2>
 

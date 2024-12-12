@@ -1,13 +1,3 @@
-import { Button } from "@/components/ui/button"
-import {
-    Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
-    CardHeader,
-    CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
 import {
     Tabs,
     TabsContent,
@@ -17,14 +7,13 @@ import {
 import { CircleArrowLeft } from "lucide-react"
 
 import Image from "next/image";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
-import { useState } from "react"
-import axios from "axios"
 
-import { useForm } from "react-hook-form";
+import characterLogin from "../../../public/character01.png"
+import characterRegister from "../../../public/character02.png"
+
 import FormRegister from "./FormRegister"
 import FormLogin from "./FormLogin"
+import { useState } from "react";
 
 interface LoginFormProps {
     onClose: () => void;
@@ -32,31 +21,44 @@ interface LoginFormProps {
 
 export default function Form({ onClose }: LoginFormProps) {
 
+    const [value, setValue] = useState("")
+
     return (
         <>
-            <div className="flex flex-row justify-between gap-[20px]">
+            <div className="flex flex-col md:flex-row justify-between gap-[20px]">
 
                 <Tabs defaultValue="login" className="flex flex-row md:flex-col justify-between text-center w-[500px] text-[#F6F6F6]">
-                    <div className="flex gap-[7px] cursor-pointer pb-8" onClick={onClose}>
+                    <div className="flex gap-[7px] cursor-pointer pb-8 w-fit" onClick={onClose}>
                         <CircleArrowLeft />
-                        <p>Back</p></div>
-                    <TabsList className="flex flex-row justify-center">
-                        <TabsTrigger value="register">Sign up</TabsTrigger>
-                        <TabsTrigger value="login">Log In</TabsTrigger>
+                        <p>Back</p>
+                    </div>
+                    <div className="flex justify-center align-top ">
+                    <TabsList className="flex flex-row justify-center bg-[#262626] w-fit h-[46px] text-[#F6F6F6] ">
+                        <TabsTrigger value="register" onClick={() => setValue("register")} className="data-[state=active]:bg-[#F0B90B] data-[state=active]:text-[#F6F6F6] w-[116px] h-[46px]">Sign up</TabsTrigger>
+                        <TabsTrigger value="login" onClick={() => setValue("login")} className="data-[state=active]:bg-[#F0B90B] data-[state=active]:text-[#F6F6F6] w-[116px] h-[46px]" >Log In</TabsTrigger>
                     </TabsList>
+                    </div>
                     <TabsContent value="register">
                         <FormRegister />
                     </TabsContent>
                     <TabsContent value="login">
                         <FormLogin />
                     </TabsContent>
-                    <p>For any questions, reach out to support@Quickbetmovies.com</p>
                 </Tabs>
 
-                <div className="h-max bg-[#1C1C1C] text-center text-[#FFFFFF]">
-                    <h1 className="font-[700] text-[35px] leading-[39px] " >Welcome Back to Quickbet Movie</h1>
-                    <p className="font-[400] text-[20px] leading-[24px]">🍿 Ready to dive into the world of unlimited entertainment? Enter your credentials and let the cinematic adventure begin!</p>
-                    <Image src={""} alt={""} />
+                <div className="h-full flex flex-col justify-center align-middle items-center px-[20px] bg-[#1C1C1C] text-center text-[#FFFFFF] rounded-r-lg">
+                    {value === "register" ?
+                        (<>
+                            <h1 className="font-[700] text-[35px] leading-[39px] pt-[20px]" >Welcome to Quickbet Movies!</h1>
+                            <p className="font-[400] text-[20px] leading-[24px] pt-3">🎬 Ready to unlock a universe of cinematic delights? Sign up now and start your journey with us!</p>
+                            <Image src={characterRegister} alt={"character"} width={350} height={350} />
+                        </>)
+                        :
+                        (<>
+                            <h1 className="font-[700] text-[35px] leading-[39px] pt-[20px]" >Welcome Back to Quickbet Movie</h1>
+                            <p className="font-[400] text-[20px] leading-[24px] pt-3">🍿 Ready to dive into the world of unlimited entertainment? Enter your credentials and let the cinematic adventure begin!</p>
+                            <Image src={characterLogin} alt={"character"} width={350} height={350} />
+                        </>)}
                 </div>
             </div>
         </>
