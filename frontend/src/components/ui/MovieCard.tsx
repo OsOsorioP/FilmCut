@@ -1,15 +1,13 @@
 import Link from 'next/link'
-import React, { Suspense } from 'react'
+import React from 'react'
 import Image from 'next/image'
 import Favorite from '../features/Favorite'
 import Percentage from './Percentage'
-import { Skeleton } from './skeleton'
 
 export default function MovieCard({ movie }: { movie: Movie }) {
     const urlImage = 'https://image.tmdb.org/t/p/w500'
 
     return (
-        <Suspense fallback={<Skeleton className='w-[200px] h-[335px] rounded-lg'/>}>
             <div
                 key={movie.id}
                 className="w-[200px] h-[335px] bg-[#262626] rounded-lg shadow-lg"
@@ -51,6 +49,5 @@ export default function MovieCard({ movie }: { movie: Movie }) {
                     </div>
                 </div>
             </div>
-        </Suspense>
     )
 }

@@ -17,9 +17,11 @@ export default function Favorite({ w, h, movieId }: Props) {
     const { data: session, status } = useSession();
     const { openModal } = useModal();
 
-    if (session?.user) {
-        setUserId(session?.user.id)
-    }
+    useEffect(() => {
+        if (session?.user) {
+            setUserId(session?.user.id);
+        }
+    }, [session]);
 
     useEffect(() => {
         const fetchFavorites = async () => {

@@ -10,14 +10,7 @@ export default function Session() {
     const { data: session, status } = useSession();
 
     if (status === "loading") {
-        return (
-            <button
-                onClick={openModal}
-                className="cursor-pointer right-5 "
-            >
-                <Image src={logoSession} alt="avatar" />
-            </button>
-        );
+        return ""
     }
 
     if (session) {
