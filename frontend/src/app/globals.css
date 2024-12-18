@@ -31,9 +31,9 @@
     --color-red:#E54545;
     --color-green:#4DA14F;
     --color-orange:#FF8800;
-    --color-red:#E54545;
-    --color-green:#4DA14F;
-    --color-orange:#FF8800;
+    --second-red:#9d0808;
+    --second-green:#0e5d0f;
+    --second-orange:#9e5400;
   }
   .dark {
     --background: 0 0% 3.9%;

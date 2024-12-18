@@ -1,7 +1,8 @@
 import { fetchNowPlaying } from '@/lib/api'
 import Link from 'next/link'
 import React from 'react'
-import { Heart } from 'lucide-react'
+import Favorite from '../features/Favorite'
+import Percentage from './Percentage'
 
 export default async function Banner() {
     const urlImage = "https://image.tmdb.org/t/p/original"
@@ -15,12 +16,6 @@ export default async function Banner() {
     const bannerNumber = Math.floor(Math.random() * banners.length)
 
     const banner: Movie = banners[bannerNumber]
-
-    const getColor = (percentage: number) => {
-        if (percentage < 33) return 'var(--color-red)';
-        if (percentage < 66) return 'var(--color-orange)';
-        return 'var(--color-green)';
-    };
 
     return (
         <div
@@ -41,19 +36,18 @@ export default async function Banner() {
                     <p className='h-[75px] mt-4 md:mt-8 text-[20px] leading-[24px] font-[700] md:text-lg max-w-96 md:max-w-4xl overflow-x-auto no-scrollbar'>
                         {banner.overview}
                     </p>
-                    <div className="flex flex-row justify-center text-center gap-[10px]">
-                        <div className="flex justify-center items-center">
-                            <Heart className="w-[25px] h-[25px]" />
-                        </div>
+                    <div className="flex flex-row justify-center text-center gap-[20px]">
 
-                        <div
-                            className="circleContainer"
-                            style={{ background: `conic-gradient(${getColor(banner.vote_average * 10)} 0% ${(banner.vote_average * 10) * 3.6}deg, lightgray ${(banner.vote_average * 10) * 3.6}deg 100%)`,width:"92px",height:"92px"}}
-                        >
-                            <div className="circle">
-                                <p className="font-[700] text-[28px] leading-[36px] text-center ">{Math.round(banner.vote_average * 10)}%</p>
-                            </div>
+                        <div className='flex justify-center items-center'>
+                            <Favorite w={25} h={25} movieId={banner.id} />
                         </div>
+                        <Percentage
+                            percentage={banner.vote_average}
+                            width={92}
+                            height={92}
+                            text={28}
+                            font={700}
+                        />
                     </div>
                 </div>
 

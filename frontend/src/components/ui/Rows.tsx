@@ -1,5 +1,5 @@
 import { fetchNowPlaying, fetchPopular, fetchTopRated, fetchUpcoming } from "@/lib/api";
-import Row from "@/components/Row";
+import Row from "@/components/ui/Row";
 
 export default async function Rows() {
 
@@ -9,12 +9,12 @@ export default async function Rows() {
     const upcommingMovies = await fetchUpcoming();
 
   return (
-    <div className="py-6 md:py-12 flex flex-col gap-y-10 md:gap-y-20 h-[100vh] overflow-y-auto no-scrollbar">
+    <section className="flex flex-col gap-10 md:gap-20 p-6 md:p-12 h-full">
       <Row title="Popular" data={popularMovies}/>
       <Row title="Now Playing" data={nowPlaying}/>
       <Row title="Upcoming" data={upcommingMovies}/>
       <Row title="Top Rated" data={topRatedMovies}/>
       <Row title="Favorites" data={popularMovies}/>
-    </div>
+    </section>
   )
 }

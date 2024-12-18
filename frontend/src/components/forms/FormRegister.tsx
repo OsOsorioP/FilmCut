@@ -1,7 +1,9 @@
-"use client";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-
+import { fetchAuthRegister } from "@/lib/api";
+interface Props {
+  onClose: () => void;
+}
 export default function RegisterPage() {
   const {
     register,
@@ -15,26 +17,19 @@ export default function RegisterPage() {
       return alert("Passwords do not match");
     }
 
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/signup`, {
-      method: "POST",
-      body: JSON.stringify({
-        username: data.username,
-        email: data.email,
-        password: data.password,
-      }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (res.ok) {
-      router.push("/auth/login");
+    const res = await fetchAuthRegister(data.username,data.email, data.password)
+    console.log(res)
+    if (res) {
+      
     }
   });
 
   return (
-    <div className="flex justify-center items-center">
-      <form onSubmit={onSubmit} className="flex flex-col gap-[20px]">
+    <div className="flex w-full h-full justify-center items-center">
+      <form 
+      onSubmit={onSubmit} 
+      className="flex flex-col justify-center items-center w-full gap-[20px]"
+      >
         <p className="font-[400] text-[14px] leading-[20px] text-center text-[#FFFFFF]">Register and enjoy</p>
 
         <input
@@ -45,7 +40,7 @@ export default function RegisterPage() {
               message: "Username is required",
             },
           })}
-          className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+          className="w-1/2 h-[46px] text-[#333] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
           placeholder="Username"
         />
 
@@ -65,7 +60,7 @@ export default function RegisterPage() {
               message: "Email is required",
             },
           })}
-          className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+          className="w-1/2 h-[46px] text-[#333] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
           placeholder="Email"
         />
         {errors.email && (
@@ -84,7 +79,7 @@ export default function RegisterPage() {
               message: "Password is required",
             },
           })}
-          className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+          className="w-1/2 h-[46px] text-[#333] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
           placeholder="Password"
         />
         {errors.password && (
@@ -103,7 +98,7 @@ export default function RegisterPage() {
               message: "Confirm Password is required",
             },
           })}
-          className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+          className="w-1/2 h-[46px] text-[#333] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
           placeholder="Confirm Password"
         />
         {errors.confirmPassword && (
@@ -114,12 +109,12 @@ export default function RegisterPage() {
           </span>
         )}
 
-        <div>
-          <button className="w-[424px] h-[46px] bg-[#F0B90B] gap-[8px]">
+        <div className="flex justify-center w-1/2 items-center text-center">
+          <button type="submit" className="w-full h-[46px] bg-[#F0B90B] text-center rounded-lg">
             Register
           </button>
         </div>
-        <p>For any questions, reach out to support@Quickbetmovies.com</p>
+        <p>For any questions, reach out to support@filmcut.com</p>
       </form>
     </div>
   );

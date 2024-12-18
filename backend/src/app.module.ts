@@ -6,6 +6,8 @@ import { MoviesModule } from './movies/movies.module';
 
 import * as dotenv from 'dotenv';
 import { User } from './users/entities/user.entity';
+import { FavoritesModule } from './favorites/favorites.module';
+import { Favorite } from './favorites/entities/favorite.entity';
 
 dotenv.config();
 
@@ -14,6 +16,7 @@ dotenv.config();
     UsersModule,
     AuthModule,
     MoviesModule,
+    FavoritesModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -21,7 +24,7 @@ dotenv.config();
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
-      entities: [User],
+      entities: [User, Favorite],
       synchronize: true,
     }),
   ],

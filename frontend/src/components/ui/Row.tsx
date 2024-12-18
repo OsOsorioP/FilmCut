@@ -1,8 +1,9 @@
 "use client"
 
-import { Heart } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import Favorite from "../features/Favorite";
+import Percentage from "./Percentage";
 
 type Props = {
     data?: Movie[];
@@ -13,14 +14,9 @@ export default function Row({ data, title }: Props) {
 
     const urlImage = 'https://image.tmdb.org/t/p/w500'
 
-    const getColor = (percentage: number) => {
-        if (percentage < 33) return 'var(--color-red)';
-        if (percentage < 66) return 'var(--color-orange)';
-        return 'var(--color-green)';
-    };
 
     return (
-        <section className="h-auto flex flex-col px-6 md:px-12">
+        <section className="h-auto flex flex-col">
 
             <div className="uppercase flex flex-col justify-between md:w-96">
                 <h2 className="text-2xl md:text5xl max-w-xs font-semibold text-[#FFFFFF]">
@@ -60,19 +56,19 @@ export default function Row({ data, title }: Props) {
                                 <div className="flex justify-center items-center text-center w-full h-[45px] gap-[20px]">
                                     <div className="felx flex-col gap-[10px]">
                                         <p className="font-[400] text-[9px] leading-[10px] pb-2">Rating</p>
-                                        <div
-                                            className="circleContainer"
-                                            style={{ background: `conic-gradient(${getColor(movie.vote_average * 10)} 0% ${(movie.vote_average * 10) * 3.6}deg, lightgray ${(movie.vote_average * 10) * 3.6}deg 100%)` }}
-                                        >
-                                            <div className="circle">
-                                                <p className="font-[400] text-[9px] leading-[10px] text-center ">{Math.round(movie.vote_average * 10)}%</p>
-                                            </div>
-                                        </div>
+                                        <Percentage
+                                            percentage={movie.vote_average}
+                                            width={25}
+                                            height={25}
+                                            font={400}
+                                            text={9}
+                                        />
                                     </div>
                                     <div className="felx flex-col gap-[20px] justify-center">
                                         <p className="font-[400] text-[9px] leading-[10px] pb-2">Favorites</p>
-                                        <div className="flex justify-center">
-                                            <Heart className="w-[25px] h-[25px]" />
+
+                                        <div className="flex justify-center items-center">
+                                            <Favorite w={25} h={25} movieId={movie.id} />
                                         </div>
                                     </div>
                                 </div>

@@ -25,14 +25,17 @@ export default function LoginPage() {
         if (res?.error) {
             setError(res.error)
         } else {
-            router.push('/')
+            
             router.refresh()
         }
     });
 
     return (
-        <div className="flex justify-center items-center">
-            <form onSubmit={onSubmit} className="flex flex-col gap-[20px]">
+        <div className="flex w-full h-full justify-center items-center">
+            <form 
+            onSubmit={onSubmit} 
+            className="flex flex-col justify-center items-center w-full gap-[20px]"
+            >
 
                 {error && (
                     <p className="bg-red-500 text-lg text-white p-3 rounded mb-2">{error}</p>
@@ -48,7 +51,7 @@ export default function LoginPage() {
                             message: "Email is required",
                         },
                     })}
-                    className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+                    className="w-1/2 h-[46px] text-[#333] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
                     placeholder="Email"
                 />
 
@@ -67,7 +70,7 @@ export default function LoginPage() {
                             message: "Password is required",
                         },
                     })}
-                    className="w-[427px] h-[46px] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
+                    className="w-1/2 h-[46px] text-[#333] bg-[#F6F6F6] rounded-t-lg border-b-2 border-[#717171] p-3"
                     placeholder="Password"
                 />
 
@@ -79,12 +82,12 @@ export default function LoginPage() {
                     </span>
                 )}
 
-                <div className="flex justify-center items-center">
-                    <button className="w-[424px] h-[46px] bg-[#F0B90B] gap-[8px]">
+                <div className="flex justify-center w-1/2 items-center text-center">
+                    <button type="submit" className="w-full h-[46px] bg-[#F0B90B] text-center rounded-lg">
                         Continue
                     </button>
                 </div>
-                <p>For any questions, reach out to support@Quickbetmovies.com</p>
+                <p>For any questions, reach out to support@filmcut.com</p>
             </form>
         </div>
     );

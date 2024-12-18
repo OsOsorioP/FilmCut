@@ -1,9 +1,12 @@
+import { Favorite } from '../../favorites/entities/favorite.entity';
 import { Role } from '../../common/enums/rol.enum';
 import {
   Entity,
   DeleteDateColumn,
   Column,
   PrimaryGeneratedColumn,
+  CreateDateColumn,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -22,6 +25,12 @@ export class User {
 
   @Column({type:'enum', default: Role.USER, enum: Role })
   role: Role;
+
+  @OneToMany(() => Favorite, (favorite) => favorite.userId)
+  favorites: Favorite[];
+
+  @CreateDateColumn()
+  createdAt: Date;
 
   @DeleteDateColumn()
   deletedAt: Date;
