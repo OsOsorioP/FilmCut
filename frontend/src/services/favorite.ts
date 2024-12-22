@@ -2,7 +2,7 @@ import { ErrorResponse } from "@/types/error";
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:4000/v1/favorite",
+  baseURL: `${process.env.NEXT_PUBLIC_BACKEND_URL}/favorite`,
 });
 
 export const fetchAddFavorite = async (userId: number, movieId: number) => {
