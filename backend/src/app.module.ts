@@ -8,6 +8,7 @@ import * as dotenv from 'dotenv';
 import { User } from './users/entities/user.entity';
 import { FavoritesModule } from './favorites/favorites.module';
 import { Favorite } from './favorites/entities/favorite.entity';
+import { ConfigModule } from '@nestjs/config';
 
 dotenv.config();
 
@@ -17,6 +18,9 @@ dotenv.config();
     AuthModule,
     MoviesModule,
     FavoritesModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DB_HOST,
@@ -24,6 +28,16 @@ dotenv.config();
       username: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: process.env.DB_NAME,
+      autoLoadEntities: true,
+      ssl: process.env.SSL === 'true',
+      extra: {
+        ssl:
+          process.env.SSL === 'true'
+            ? {
+                rejectUnauthorized: false,
+              }
+            : null,
+      },
       entities: [User, Favorite],
       synchronize: true,
     }),
