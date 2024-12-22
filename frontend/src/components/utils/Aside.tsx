@@ -1,6 +1,6 @@
 import React from 'react'
-import Search from './Search'
-import Accordion from './Accordion'
+import Search from '@/components/utils/Search'
+import Accordion from '@/components/utils/Accordion'
 
 export default function Aside() {
   return (

@@ -1,8 +1,8 @@
 import React from 'react'
-import Favorite from '../features/Favorite'
-import Percentage from './Percentage'
+import Percentage from '@/components/ui/Percentage'
 import { fetchNowPlaying } from '@/services/movies'
 import { Movie } from '@/types/movie'
+import Favorite from '@/components/features/Favorite'
 
 export default async function Banner() {
     const urlImage = "https://image.tmdb.org/t/p/original"

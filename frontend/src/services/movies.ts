@@ -5,6 +5,7 @@ const api = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_BACKEND_URL}/movies`,
 });
 
+
 export const fetchNowPlaying = async () => {
   try {
     const response = await api.get("/now_playing");

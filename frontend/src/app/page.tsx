@@ -6,12 +6,12 @@ import ScrollToUp from "@/components/ui/ScrollToUp";
 function HomePage() {
   return (
     <>
-        <Banner />
-        <div className="flex flex-col md:flex-row h-full">
-          <Aside />
-            <Rows />
-        </div>
-        <ScrollToUp />
+      <Banner />
+      <div className="flex flex-col md:flex-row h-full">
+        <Aside />
+        <Rows />
+      </div>
+      <ScrollToUp />
     </>
   );
 }
