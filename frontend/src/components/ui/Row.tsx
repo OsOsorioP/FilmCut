@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Favorite from "../features/Favorite";
 import Percentage from "./Percentage";
+import { Movie } from "@/types/movie";
 
 type Props = {
     data?: Movie[];

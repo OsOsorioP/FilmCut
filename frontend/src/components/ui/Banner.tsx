@@ -1,8 +1,8 @@
-import { fetchNowPlaying } from '@/lib/api'
-import Link from 'next/link'
 import React from 'react'
 import Favorite from '../features/Favorite'
 import Percentage from './Percentage'
+import { fetchNowPlaying } from '@/services/movies'
+import { Movie } from '@/types/movie'
 
 export default async function Banner() {
     const urlImage = "https://image.tmdb.org/t/p/original"

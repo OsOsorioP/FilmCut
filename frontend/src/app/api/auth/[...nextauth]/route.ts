@@ -9,7 +9,7 @@ const handler = NextAuth({
         email: { label: "email", type: "email" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials, req) {
+      async authorize(credentials) {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/signin`,
           {
@@ -35,7 +35,7 @@ const handler = NextAuth({
       return { ...token, ...user };
     },
     async session({ session, token }) {
-      session.user = token as any;
+      session.user = token as { id: number; email: string; token: string };
       return session;
     },
   },

@@ -1,5 +1,4 @@
 
-import { fetchMovieById, fetchRecommendations } from "@/lib/api";
 import Row from "@/components/ui/Row";
 
 import { Badge } from "@/components/ui/badge";
@@ -12,16 +11,16 @@ import Image from "next/image";
 import Link from "next/link";
 import Percentage from "@/components/ui/Percentage";
 import Favorite from "@/components/features/Favorite";
+import { fetchMovieById, fetchRecommendations } from "@/services/movies";
+import { Movie } from "@/types/movie";
+import { Genres } from "@/types/genres";
 
 type Props = {
-    params: {
-        movieId: string;
-    }
+    params: Promise<{ movieId: string }>;
 }
-
 export default async function MoviePage({ params }: Props) {
     const urlImage = 'https://image.tmdb.org/t/p/original'
-    const movieId = params.movieId
+    const movieId = (await params).movieId;
 
     const movie: Movie = await fetchMovieById(movieId)
     const recomendations = await fetchRecommendations(movieId)

@@ -1,5 +1,5 @@
-import { fetchNowPlaying, fetchPopular, fetchTopRated, fetchUpcoming } from "@/lib/api";
 import Row from "@/components/ui/Row";
+import { fetchNowPlaying, fetchPopular, fetchTopRated, fetchUpcoming } from "@/services/movies";
 
 export default async function Rows() {
 

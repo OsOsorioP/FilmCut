@@ -1,9 +1,9 @@
 "use client"
-import { fetchAddFavorite, fetchGetFavorites, fetchRemoveFavorite } from '@/lib/api';
 import { Heart } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { useModal } from '@/context/ModalContext';
 import { useSession } from 'next-auth/react';
+import { fetchAddFavorite, fetchGetFavorites, fetchRemoveFavorite } from '@/services/favorite';
 
 interface Props {
     w: number;
@@ -14,7 +14,7 @@ interface Props {
 export default function Favorite({ w, h, movieId }: Props) {
     const [favorites, setFavorites] = useState<number[]>([]);
     const [userId, setUserId] = useState(0)
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
     const { openModal } = useModal();
 
     useEffect(() => {
@@ -29,7 +29,8 @@ export default function Favorite({ w, h, movieId }: Props) {
                 const data = await fetchGetFavorites(userId);
                 setFavorites(data);
             } catch (error) {
-                console.error('Error fetching favorites:', error);
+                console.log(error)
+                setFavorites([])
             }
         };
 

@@ -3,6 +3,7 @@ import React from 'react'
 import Image from 'next/image'
 import Favorite from '../features/Favorite'
 import Percentage from './Percentage'
+import { Movie } from '@/types/movie'
 
 export default function MovieCard({ movie }: { movie: Movie }) {
     const urlImage = 'https://image.tmdb.org/t/p/w500'

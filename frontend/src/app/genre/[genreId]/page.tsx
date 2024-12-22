@@ -1,15 +1,18 @@
-import { fetchMovieByGenre } from "@/lib/api";
 import LoadMore from "@/components/ui/LoadMore";
 import MovieCard from "@/components/ui/MovieCard";
 import { genres } from "@/constants/genres";
+import { fetchMovieByGenre } from "@/services/movies";
+import { Movie } from "@/types/movie";
 
-export default async function GenrePage({ params }:
-    {
-        params: Promise<{ genreId: string }>
-    }) {
+interface Props {
+    params: Promise<{ genreId: string }>;
+}
 
-    const genreId = (await params).genreId
+export default async function GenrePage({ params }: Props) {
+
+    const genreId = (await params).genreId;
     const movies = await fetchMovieByGenre(genreId, 1)
+
 
     return (
         <div className="flex flex-col gap-4 justify-center items-center w-full h-full p-[20px]">

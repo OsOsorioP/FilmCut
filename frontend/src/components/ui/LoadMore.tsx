@@ -4,14 +4,14 @@ import { useInView } from "react-intersection-observer";
 import { Loader2Icon } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import { fetchMovieByGenre } from "@/lib/api";
-
 import MovieCard from "@/components/ui/MovieCard";
+import { fetchMovieByGenre } from "@/services/movies";
+import { Movie } from "@/types/movie";
 
 let page = 2;
 
 export default function LoadMore({ id }: { id: string }) {
-    
+
     const { ref, inView } = useInView()
     const [movies, setMovies] = useState<Movie[]>([])
 

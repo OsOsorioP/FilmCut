@@ -9,7 +9,7 @@ import { useModal } from "@/context/ModalContext";
 
 export default function Header() {
     const [show, handleShow] = useState(false);
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
     const { openModal } = useModal();
 
     const transitionHeader = () => {

@@ -1,32 +1,9 @@
-"use client";
 import { Search } from "lucide-react";
-
-import { fetchSearchMovie } from "@/lib/api";
-import React, { useEffect, useState } from 'react';
-import Link from "next/link";
-import { genres } from "@/constants/genres";
+import React from 'react';
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 
 export default function SearchMovies() {
-    const [movie, setMovie] = useState({ title: "Loading Movies" });
-    const [movies, setMovies] = useState<Movie[]>([]);
-    const [searchKey, setSearchKey] = useState<string>("");
-
-    const searchMovies = async (key: string) => {
-        const searchResults = await fetchSearchMovie(key);
-        setMovies(searchResults);
-        setMovie(searchResults[0] || { title: "No movies found" });
-    };
-
-    useEffect(() => {
-        searchMovies("");
-    }, []);
-
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        searchMovies(searchKey);
-    };
 
     return (
         <aside>

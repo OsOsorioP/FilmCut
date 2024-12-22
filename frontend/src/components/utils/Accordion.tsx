@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/accordion"
 import { genres } from '@/constants/genres'
 import Link from 'next/link'
+import { Genres } from '@/types/genres'
 
 export default function AccordionGenre() {
     return (

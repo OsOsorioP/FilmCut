@@ -1,16 +1,12 @@
 import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
-import { fetchAuthRegister } from "@/lib/api";
-interface Props {
-  onClose: () => void;
-}
+import { fetchAuthRegister } from "@/services/auth";
+
 export default function RegisterPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const router = useRouter();
 
   const onSubmit = handleSubmit(async (data) => {
     if (data.password !== data.confirmPassword) {
