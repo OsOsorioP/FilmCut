@@ -1,7 +1,7 @@
 # Movie App 
 
   <p align="center">
-     <img src="https://github.com/OsOsorioP/PTInlaze/blob/main/ImageWeb.png" alt="home" title="Pantalla de inicio" width="660">
+     <img src="https://github.com/OsOsorioP/PTInlaze/blob/main/FilmCut02.webp" alt="home" title="Pantalla de inicio" width="660">
    </p>
 
 ## Descripción
