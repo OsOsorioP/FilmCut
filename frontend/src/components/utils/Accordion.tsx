@@ -17,7 +17,7 @@ export default function AccordionGenre() {
             <Accordion type="single" collapsible className="w-full h-fit">
                 <AccordionItem value="item-1">
                     <AccordionTrigger className=" w-[228px] h-[40px] bg-[#1C1C1C] mt-5 mb-1 text-[#FFFFFF] font-[700] text-[16px] leading-[22px]">
-                        <p className="px-10">___________________</p>
+                        <p className="px-4">Select Genre</p>
                     </AccordionTrigger>
                     <div className="overflow-y-scroll scroll max-h-[355px]">
                         {genres.map((genres: Genres) => (
