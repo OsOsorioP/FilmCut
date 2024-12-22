@@ -23,7 +23,7 @@ export default function RootLayout({
         className={` bg-[#757575] antialiased overflow-x-hidden no-scrollbar`}
       >
 
-        <Suspense fallback={<div className="fixed top-0 left-0"><LoaderPinwheel/></div>}>
+        <Suspense fallback={<div className="fixed top-0 left-0 z-[50]"><LoaderPinwheel/></div>}>
           <SessionAuthProvider>
             <ModalProvider>
               <Header />
