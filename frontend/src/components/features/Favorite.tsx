@@ -24,17 +24,19 @@ export default function Favorite({ w, h, movieId }: Props) {
     }, [session]);
 
     useEffect(() => {
-        const fetchFavorites = async () => {
-            try {
-                const data = await fetchGetFavorites(userId);
-                setFavorites(data);
-            } catch (error) {
-                console.log(error)
-                setFavorites([])
-            }
-        };
-
-        fetchFavorites();
+        if (userId>0) {
+            const fetchFavorites = async () => {
+                try {
+                    const data = await fetchGetFavorites(userId);
+                    setFavorites(data);
+                } catch (error) {
+                    console.log(error)
+                    setFavorites([])
+                }
+            };
+    
+            fetchFavorites();   
+        }
     }, [userId]);
 
     const isFavorite = (movieId: number): boolean => {
