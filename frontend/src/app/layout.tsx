@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` bg-[#757575] antialiased`}
+        className={` bg-[#757575] antialiased overflow-x-hidden no-scrollbar`}
       >
 
         <SessionAuthProvider>

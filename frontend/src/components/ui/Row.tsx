@@ -30,7 +30,7 @@ export default function Row({ data, title }: Props) {
                 </div>
             </div>
 
-            <div className="w-full mt-4 ml-2 md:ml-0 overflow-x-auto no-scrollbar flex gap-x-4">
+            <div className="w-screen mt-4 ml-2 md:ml-0 overflow-x-auto no-scrollbar flex gap-x-4">
                 {data &&
                     data.map((movie) => (
                         <div
